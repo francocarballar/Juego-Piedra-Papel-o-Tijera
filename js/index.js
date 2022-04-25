@@ -24,6 +24,23 @@ function opcionAleatoria(opciones){
 }
 let pc = opcionAleatoria(opciones);
 let puntos = 0;
+function jugarOtraVez(){
+    function nuevaOpcionAleatoria(opciones){
+        let indiceAleatorio = Math.floor(Math.random() * opciones.length);
+        return opciones[indiceAleatorio];
+    }
+    pc = nuevaOpcionAleatoria(opciones);
+    user = "ElegirOtraVez";
+    title.style = "opacity: 1;";
+    papel.style ="background-color: var(--secondary-color); border: none;";
+    piedra.style ="background-color: var(--secondary-color); border: none;";
+    tijera.style ="background-color: var(--secondary-color); border: none;";
+    containerResultado.style = "display: none;";
+    ganaste.style = "display: none;";
+    perdiste.style = "display: none;";
+    empate.style = "display: none;";
+    containerJugarOtraVez.style = "display: none;"
+}
 piedra.addEventListener('click', (e)=>{
     const click = e.target;
     if(click == piedra || click == piedraImg){
@@ -129,22 +146,6 @@ jugar.addEventListener('click', (e)=>{
     }
 });
 puntaje.innerHTML = puntosAlmacenados;
-function jugarOtraVez(){
-    function nuevaOpcionAleatoria(opciones){
-        let indiceAleatorio = Math.floor(Math.random() * opciones.length);
-        return opciones[indiceAleatorio];
-    }
-    pc = nuevaOpcionAleatoria(opciones);
-    title.style = "opacity: 1;";
-    papel.style ="background-color: var(--secondary-color); border: none;";
-    piedra.style ="background-color: var(--secondary-color); border: none;";
-    tijera.style ="background-color: var(--secondary-color); border: none;";
-    containerResultado.style = "display: none;";
-    ganaste.style = "display: none;";
-    perdiste.style = "display: none;";
-    empate.style = "display: none;";
-    containerJugarOtraVez.style = "display: none;";
-}
 
 // Modo oscuro 
 
@@ -157,6 +158,7 @@ theme.addEventListener('click', (e) => {
     } else if (!body.classList.contains("dark")) {
         localStorage.setItem("theme", "false");
     }
+    window.location.reload();
 });
 if(localStorage.getItem("theme") === "true"){
     body.classList.add("dark");
@@ -170,6 +172,7 @@ if(body.classList.contains("dark")){
             return opciones[indiceAleatorio];
         }
         pc = nuevaOpcionAleatoria(opciones);
+        user = "ElegirOtraVez";
         title.style = "opacity: 1;";
         papel.style ="background-color: var(--dark-secondary-color); border: none;";
         piedra.style ="background-color: var(--dark-secondary-color); border: none;";
