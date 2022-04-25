@@ -24,6 +24,18 @@ function opcionAleatoria(opciones){
 }
 let pc = opcionAleatoria(opciones);
 let puntos = 0;
+function jugarOtraVez(){
+    opcionAleatoria(opciones);
+    title.style = "opacity: 1;";
+    papel.style ="background-color: var(--secondary-color); border: none;";
+    piedra.style ="background-color: var(--secondary-color); border: none;";
+    tijera.style ="background-color: var(--secondary-color); border: none;";
+    containerResultado.style = "display: none;";
+    ganaste.style = "display: none;";
+    perdiste.style = "display: none;";
+    empate.style = "display: none;";
+    containerJugarOtraVez.style = "display: none;";
+}
 piedra.addEventListener('click', (e)=>{
     const click = e.target;
     if(click == piedra || click == piedraImg){
@@ -31,7 +43,7 @@ piedra.addEventListener('click', (e)=>{
     }
     piedra.style ="background-color: var(--primary-color); border: 2px solid var(--color-text);";
     papel.style ="background-color: var(--secondary-color); border: none;";
-    tijera.style ="background-color: var(--secondary-color); border: none);";
+    tijera.style ="background-color: var(--secondary-color); border: none;";
 });
 papel.addEventListener('click', (e)=>{
     const click = e.target;
@@ -40,7 +52,7 @@ papel.addEventListener('click', (e)=>{
     }
     papel.style ="background-color: var(--primary-color); border: 2px solid var(--color-text);";
     piedra.style ="background-color: var(--secondary-color); border: none;";
-    tijera.style ="background-color: var(--secondary-color)); border: none);";
+    tijera.style ="background-color: var(--secondary-color); border: none;";
 });
 tijera.addEventListener('click', (e)=>{
     const click = e.target;
@@ -49,7 +61,7 @@ tijera.addEventListener('click', (e)=>{
     }
     tijera.style ="background-color: var(--primary-color); border: 2px solid var(--color-text);";
     papel.style ="background-color: var(--secondary-color); border: none;";
-    piedra.style ="background-color: var(--secondary-color); border: none);";
+    piedra.style ="background-color: var(--secondary-color); border: none;";
 });
 let puntosAlmacenados = localStorage.getItem('puntos');
 jugar.addEventListener('click', (e)=>{
@@ -129,9 +141,6 @@ jugar.addEventListener('click', (e)=>{
     }
 });
 puntaje.innerHTML = puntosAlmacenados;
-function jugarOtraVez(){
-    window.location.reload();
-}
 
 // Modo oscuro 
 
