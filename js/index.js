@@ -24,18 +24,6 @@ function opcionAleatoria(opciones){
 }
 let pc = opcionAleatoria(opciones);
 let puntos = 0;
-function jugarOtraVez(){
-    opcionAleatoria(opciones);
-    title.style = "opacity: 1;";
-    papel.style ="background-color: var(--secondary-color); border: none;";
-    piedra.style ="background-color: var(--secondary-color); border: none;";
-    tijera.style ="background-color: var(--secondary-color); border: none;";
-    containerResultado.style = "display: none;";
-    ganaste.style = "display: none;";
-    perdiste.style = "display: none;";
-    empate.style = "display: none;";
-    containerJugarOtraVez.style = "display: none;";
-}
 piedra.addEventListener('click', (e)=>{
     const click = e.target;
     if(click == piedra || click == piedraImg){
@@ -141,6 +129,22 @@ jugar.addEventListener('click', (e)=>{
     }
 });
 puntaje.innerHTML = puntosAlmacenados;
+function jugarOtraVez(){
+    function nuevaOpcionAleatoria(opciones){
+        let indiceAleatorio = Math.floor(Math.random() * opciones.length);
+        return opciones[indiceAleatorio];
+    }
+    pc = nuevaOpcionAleatoria(opciones);
+    title.style = "opacity: 1;";
+    papel.style ="background-color: var(--secondary-color); border: none;";
+    piedra.style ="background-color: var(--secondary-color); border: none;";
+    tijera.style ="background-color: var(--secondary-color); border: none;";
+    containerResultado.style = "display: none;";
+    ganaste.style = "display: none;";
+    perdiste.style = "display: none;";
+    empate.style = "display: none;";
+    containerJugarOtraVez.style = "display: none;";
+}
 
 // Modo oscuro 
 
@@ -160,6 +164,22 @@ if(localStorage.getItem("theme") === "true"){
     body.classList.remove("dark");
 }
 if(body.classList.contains("dark")){
+    function jugarOtraVez(){
+        function nuevaOpcionAleatoria(opciones){
+            let indiceAleatorio = Math.floor(Math.random() * opciones.length);
+            return opciones[indiceAleatorio];
+        }
+        pc = nuevaOpcionAleatoria(opciones);
+        title.style = "opacity: 1;";
+        papel.style ="background-color: var(--dark-secondary-color); border: none;";
+        piedra.style ="background-color: var(--dark-secondary-color); border: none;";
+        tijera.style ="background-color: var(--dark-secondary-color); border: none;";
+        containerResultado.style = "display: none;";
+        ganaste.style = "display: none;";
+        perdiste.style = "display: none;";
+        empate.style = "display: none;";
+        containerJugarOtraVez.style = "display: none;";
+    }
     piedra.addEventListener('click', (e)=>{
         const click = e.target;
         if(click == piedra || click == piedraImg){
