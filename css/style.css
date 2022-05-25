@@ -403,13 +403,13 @@ footer {
     background-color: var(--dark-secondary-color);
 }
 footer
-h4 {
+p {
     font-size: var(--font-size__mobile);
     font-weight: 500;
     color: black;
 }
 body.dark
 footer
-h4 {
+p {
     color: var(--dark-tertiary-color);
 }
