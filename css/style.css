@@ -2,39 +2,48 @@
     --font-size__mobile: 1.4rem;
     --font-size__laptop: 1.6rem;
     --font-size__desktop: 4rem;
+
     --color-text: rgb(75, 75, 75);
-    --dark-color-text: #e1f0f8;
     --primary-color: #CCFFFF;
-    --dark-primary-color: #33b1ff;
-    --background-color-degrade: linear-gradient(45deg, #CCFFFF, #FFCCCC);
-    --dark-background-color-degrade: linear-gradient(45deg, #33b1ff, #121f3d);
     --secondary-color: rgb(120 120 120 / 40%);
+    --background-color-degrade: linear-gradient(45deg, #CCFFFF, #FFCCCC);
+
+    --dark-color-text: #e1f0f8;
+    --dark-primary-color: #33b1ff;
     --dark-secondary-color: rgb(200 200 200 / 40%);
     --dark-tertiary-color: #121f3d;
     --dark-fourth-color: rgb(200 200 200);
+    --dark-background-color-degrade: linear-gradient(45deg, #33b1ff, #121f3d);
+    
     --pc: rgb(184, 0, 0);
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0); 
 }
+
 html {
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
 }
+
 body {
     background: var(--background-color-degrade);
     overflow: hidden;
 }
+
 body.dark {
     background: var(--dark-background-color-degrade);
 }
+
 header {
     width: 100%;
     height: 4rem;
 }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -42,11 +51,12 @@ nav {
     width: 100%;
     height: auto;
 }
-nav
-ul {
+
+nav ul {
     margin: 10px 25px;
     list-style-type: none;
 }
+
 .toggle-dark-mode {
     display: inline-block;
     position: relative;
@@ -56,10 +66,11 @@ ul {
     background-color: var(--primary-color);
     border-radius: 1rem;
 }
-body.dark
-.toggle-dark-mode {
+
+body.dark .toggle-dark-mode {
     background-color: var(--dark-primary-color);
 }
+
 #theme {
     position: absolute;
     top: -50%;
@@ -74,24 +85,25 @@ body.dark
     transition: left 0.5s, transform 0.5s;
     cursor: pointer;
 }
-body.dark
-#theme {
+
+body.dark #theme {
     left: calc(100% - 2.4rem);
     background-image: url("../assets/icons/moon.svg");
 }
+
 .puntos {
     font-size: var(--font-size__mobile);
     color: black;
 }
-body.dark
-.puntos {
+
+body.dark .puntos {
     color: var(--dark-color-text);
 }
 
-.puntos 
-p {
+.puntos p {
     display: inline;
 }
+
 main {
     display: flex;
     flex-direction: column;
@@ -100,19 +112,18 @@ main {
     width: 100%;
     height: 100%;
 }
-main
-#title {
+
+main #title {
     margin: 25px;
     font-size: 2.4rem;
     color: var(--color-text);
 }
-body.dark
-main
-#title {
+
+body.dark main #title {
     color: var(--dark-color-text);
 }
-main
-.container-piedra-papel-tijera {
+
+main .container-piedra-papel-tijera {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -121,9 +132,8 @@ main
     width: 100%;
     height: 30vh;
 }
-main
-.container-piedra-papel-tijera
-figure {
+
+main .container-piedra-papel-tijera figure {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,34 +144,30 @@ figure {
     border-radius: 50%;
     cursor: pointer;
 }
-main
-.container-piedra-papel-tijera
-figure:hover {
+
+main .container-piedra-papel-tijera figure:hover {
     box-shadow: 0rem 0.2rem 0.8rem 0.1rem rgb(0 0 0 / 60%);
     transition: all 0.5s;
     transform: scale(1.2);
 }
-body.dark
-main
-.container-piedra-papel-tijera
-figure {
+
+body.dark main .container-piedra-papel-tijera figure {
     background-color: var(--dark-secondary-color);
 }
-main
-.container-piedra-papel-tijera
-figure
-img {
+
+main .container-piedra-papel-tijera figure img {
     width: 70%;
     height: 70%;
 }
-main
-section {
+
+main section {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
     height: 70vh;
 }
+
 .button-play {
     display: flex;
     justify-content: center;
@@ -176,21 +182,23 @@ section {
     border-radius: 25px;
     cursor: pointer;
 }
+
 .button-play:hover {
     border: none;
     box-shadow: 0rem 0.2rem 0.8rem 0.1rem rgb(0 0 0 / 60%);
 }
-body.dark
-.button-play {
+
+body.dark .button-play {
     color: var(--dark-tertiary-color);
     background-color: var(--dark-primary-color);
     border: 2px solid var(--dark-tertiary-color);
 }
-body.dark
-.button-play:hover {
+
+body.dark .button-play:hover {
     border: none;
     box-shadow: 0rem 0.2rem 0.8rem 0.1rem rgb(0 0 0 / 60%);
 }
+
 .container-resultado {
     display: none;
     justify-content: center;
@@ -199,8 +207,8 @@ body.dark
     top: calc(50% - 210px);
     height: auto;
 }
-.container-resultado
-ul {
+
+.container-resultado ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,13 +222,12 @@ ul {
     border-radius: 25px;
     cursor: pointer;
 }
-body.dark
-.container-resultado
-ul {
+
+body.dark .container-resultado ul {
     background-color: var(--dark-fourth-color);
 }
-.container-resultado
-#user {
+
+.container-resultado #user {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,8 +239,8 @@ ul {
     background-color: var(--dark-primary-color);
     border-radius: 25px 0px 0px 25px;
 }
-.container-resultado
-#resultado-user {
+
+.container-resultado #resultado-user {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,8 +249,8 @@ ul {
     border: 2px solid var(--dark-primary-color);
     border-right: none;
 }
-.container-resultado
-#vs {
+
+.container-resultado #vs {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -252,8 +259,8 @@ ul {
     border-top: 2px solid var(--dark-primary-color);
     border-bottom: 2px solid var(--pc);
 }
-.container-resultado
-#resultado-pc {
+
+.container-resultado #resultado-pc {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,8 +269,8 @@ ul {
     border: 2px solid var(--pc);
     border-left: none;
 }
-.container-resultado
-#pc {
+
+.container-resultado #pc {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -275,6 +282,7 @@ ul {
     background-color: var(--pc);
     border-radius: 0px 25px 25px 0px;
 }
+
 .container-jugar-otra-vez {
     display: none;
     justify-content: center;
@@ -283,6 +291,7 @@ ul {
     top: calc(50% + 170px);
     height: auto;
 }
+
 #ganaste {
     display: none;
     flex-direction: column;
@@ -297,27 +306,28 @@ ul {
     border-radius: 25px;
     box-shadow: 0rem 0.2rem 0.8rem 0.1rem rgb(0 0 0 / 60%);
 }
-body.dark
-#ganaste {
+
+body.dark #ganaste {
     background-color: var(--dark-fourth-color);
 }
-#ganaste
-figure {
+
+#ganaste figure {
     margin: 25px;
     width: 80px;
     height: 80px;
 }
-#ganaste
-img {
+
+#ganaste img {
     width: 100%;
     height: 100%;
 }
-#ganaste
-p {
+
+#ganaste p {
     font-size: 2.4rem;
     font-weight: 500;
     color: black;
 }
+
 #perdiste {
     display: none;
     flex-direction: column;
@@ -332,27 +342,28 @@ p {
     border-radius: 25px;
     box-shadow: 0rem 0.2rem 0.8rem 0.1rem rgb(0 0 0 / 60%);
 }
-body.dark
-#perdiste {
+
+body.dark #perdiste {
     background-color: var(--dark-fourth-color);
 }
-#perdiste
-figure {
+
+#perdiste figure {
     margin: 25px;
     width: 80px;
     height: 80px;
 }
-#perdiste
-img {
+
+#perdiste img {
     width: 100%;
     height: 100%;
 }
-#perdiste
-p {
+
+#perdiste p {
     font-size: 2.4rem;
     font-weight: 500;
     color: black;
 }
+
 #empate {
     display: none;
     flex-direction: column;
@@ -367,27 +378,28 @@ p {
     border-radius: 25px;
     box-shadow: 0rem 0.2rem 0.8rem 0.1rem rgb(0 0 0 / 60%);
 }
-body.dark
-#empate {
+
+body.dark #empate {
     background-color: var(--dark-fourth-color);
 }
-#empate
-figure {
+
+#empate figure {
     margin: 25px;
     width: 80px;
     height: 80px;
 }
-#empate
-img {
+
+#empate img {
     width: 100%;
     height: 100%;
 }
-#empate
-p {
+
+#empate p {
     font-size: 2.4rem;
     font-weight: 500;
     color: black;
 }
+
 footer {
     display: flex;
     justify-content: center;
@@ -398,18 +410,17 @@ footer {
     height: 10vh;
     background-color: var(--secondary-color);
 }
-body.dark
-footer {
+
+body.dark footer {
     background-color: var(--dark-secondary-color);
 }
-footer
-p {
+
+footer h4 {
     font-size: var(--font-size__mobile);
     font-weight: 500;
     color: black;
 }
-body.dark
-footer
-p {
+
+body.dark footer h4 {
     color: var(--dark-tertiary-color);
 }
