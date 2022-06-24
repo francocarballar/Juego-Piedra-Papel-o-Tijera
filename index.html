@@ -1,81 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="index,follow">
-        <meta name="description" content="Videojuego de piedra, papel o tijera. Fácil y divertido. Para jugar en familia.">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="shortcut icon" href="./assets/icons/piedra-papel-tijera.ico" rel="preload" onload="this.rel='shortcut icon'">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./css/style.css">
-        <title>Juego piedra, papel o tijera</title>
-    </head>
-    <body id="body">
-        <header>
-            <nav>
-                <label class="toggle-dark-mode">
-                    <span id="theme"></span>
-                </label>
-                <ul>
-                    <li class="puntos">
-                        Puntos: <p id="puntaje">0</p>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h1 id="title">Elige una opción:</h1>
-            <section class="container-piedra-papel-tijera">
-                <figure id="piedra">
-                    <img src="./assets/img/piedra.png" alt="Es una mano con el puño cerrado, simulando una piedra" id="piedra-img">
-                </figure>
-                <figure id="papel">
-                    <img src="./assets/img/papel.png" alt="Es una mano abierta, simulando el papel" id="papel-img">
-                </figure>
-                <figure id="tijera">
-                    <img src="./assets/img/tijera.png" alt="Es una mano cerrada con dos dedos levantados, simulando una tijera" id="tijera-img">
-                </figure>
-            </section>
-            <section>
-                <button class="button-play">Jugar</button>
-            </section>
-            <section class="container-resultado">
-                <ul>
-                    <li id="user">Tú</li>
-                    <li id="resultado-user">Papel</li>
-                    <li id="vs">vs.</li>
-                    <li id="resultado-pc">Piedra</li>
-                    <li id="pc">PC</li>
-                </ul>
-            </section>
-            <div id="ganaste">
-                <figure>
-                    <img src="./assets/img/Yes_Check_Circle.png" alt="Icono de verificación">
-                </figure>
-                <p>Ganaste</p>
-            </div>
-            <div id="perdiste">
-                <figure>
-                    <img src="./assets/img/No_Check_Circle.png" alt="Icono de error">
-                </figure>
-                <p>Perdiste</p>
-            </div>
-            <div id="empate">
-                <figure>
-                    <img src="./assets/img/dar-la-mano.png" alt="Dos manos agarradas una de la otra">
-                </figure>
-                <p>Empate</p>
-            </div>
-            <section class="container-jugar-otra-vez">
-                <button class="button-play" onclick="jugarOtraVez()">Jugar otra vez</button>
-            </section>
-        </main>
-        <footer>
-            <h4>©2022 creado por Franco Carballar.</h4>
-        </footer>
-        <script type="text/javascript" src="./js/index.js"></script>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Videojuego de piedra, papel o tijera. Fácil y divertido. Para jugar en familia.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./assets/icons/piedra-papel-tijera.ico" rel="preload"
+        onload="this.rel='shortcut icon'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Juego piedra, papel o tijera</title>
+</head>
+
+<body id="body">
+    <header>
+        <nav>
+            <label class="toggle-dark-mode">
+                <span id="theme"></span>
+            </label>
+            <ul>
+                <li class="puntos">
+                    Puntos: <p id="puntaje">0</p>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 id="title">Elige una opción:</h1>
+        <section class="container-piedra-papel-tijera">
+            <figure id="piedra">
+                <img src="./assets/img/piedra.png" alt="Es una mano con el puño cerrado, simulando una piedra"
+                    id="piedra-img">
+            </figure>
+            <figure id="papel">
+                <img src="./assets/img/papel.png" alt="Es una mano abierta, simulando el papel" id="papel-img">
+            </figure>
+            <figure id="tijera">
+                <img src="./assets/img/tijera.png"
+                    alt="Es una mano cerrada con dos dedos levantados, simulando una tijera" id="tijera-img">
+            </figure>
+        </section>
+        <section>
+            <button class="button-play">Jugar</button>
+        </section>
+        <section class="container-resultado">
+            <ul>
+                <li id="user">Tú</li>
+                <li id="resultado-user">Papel</li>
+                <li id="vs">vs.</li>
+                <li id="resultado-pc">Piedra</li>
+                <li id="pc">PC</li>
+            </ul>
+        </section>
+        <div id="ganaste">
+            <figure>
+                <img src="./assets/img/Yes_Check_Circle.png" alt="Icono de verificación">
+            </figure>
+            <p>Ganaste</p>
+        </div>
+        <div id="perdiste">
+            <figure>
+                <img src="./assets/img/No_Check_Circle.png" alt="Icono de error">
+            </figure>
+            <p>Perdiste</p>
+        </div>
+        <div id="empate">
+            <figure>
+                <img src="./assets/img/dar-la-mano.png" alt="Dos manos agarradas una de la otra">
+            </figure>
+            <p>Empate</p>
+        </div>
+        <section class="container-jugar-otra-vez">
+            <button class="button-play" onclick="jugarOtraVez()">Jugar otra vez</button>
+        </section>
+    </main>
+    <footer>
+        <h4>©2022 creado por Franco Carballar.</h4>
+    </footer>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4M02F4C7T0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4M02F4C7T0');
+    </script>
+</body>
+
 </html>
