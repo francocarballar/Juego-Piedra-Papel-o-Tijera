@@ -170,7 +170,7 @@ theme.addEventListener('click', e => {
   } else if (!body.classList.contains('dark')) {
     localStorage.setItem('theme', 'false')
   }
-  // window.location.reload()
+  window.location.reload()
 })
 if (localStorage.getItem('theme') === 'true') {
   body.classList.add('dark')
