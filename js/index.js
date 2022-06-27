@@ -12,7 +12,9 @@ const jugar = document.querySelector('.button-play')
 const ganaste = document.getElementById('ganaste')
 const perdiste = document.getElementById('perdiste')
 const empate = document.getElementById('empate')
-const containerJugarOtraVez = document.querySelector('.container-jugar-otra-vez')
+const containerJugarOtraVez = document.querySelector(
+  '.container-jugar-otra-vez'
+)
 const containerResultado = document.querySelector('.container-resultado')
 const resultadoUser = document.getElementById('resultado-user')
 const resultadoPC = document.getElementById('resultado-pc')
@@ -27,112 +29,86 @@ let pc = function opcionAleatoria (opciones) {
 
 // Reglas del juego
 
+const clickEleccion = (op1, op2, op3) => {
+  op1.style =
+    'background-color: var(--primary-color); border: 2px solid var(--color-text);'
+  op2.style = 'background-color: var(--secondary-color); border: none;'
+  op3.style = 'background-color: var(--secondary-color); border: none;'
+}
+
 piedra.addEventListener('click', e => {
   const click = e.target
   if (click == piedra || click == piedraImg) {
     user = piedra
   }
-  piedra.style =
-    'background-color: var(--primary-color); border: 2px solid var(--color-text);'
-  papel.style = 'background-color: var(--secondary-color); border: none;'
-  tijera.style = 'background-color: var(--secondary-color); border: none;'
+  clickEleccion(piedra, papel, tijera)
 })
 papel.addEventListener('click', e => {
   const click = e.target
   if (click == papel || click == papelImg) {
     user = papel
   }
-  papel.style =
-    'background-color: var(--primary-color); border: 2px solid var(--color-text);'
-  piedra.style = 'background-color: var(--secondary-color); border: none;'
-  tijera.style = 'background-color: var(--secondary-color); border: none;'
+  clickEleccion(papel, piedra, tijera)
 })
 tijera.addEventListener('click', e => {
   const click = e.target
   if (click == tijera || click == tijeraImg) {
     user = tijera
   }
-  tijera.style =
-    'background-color: var(--primary-color); border: 2px solid var(--color-text);'
-  papel.style = 'background-color: var(--secondary-color); border: none;'
-  piedra.style = 'background-color: var(--secondary-color); border: none;'
+  clickEleccion(tijera, papel, piedra)
 })
 
 // Función jugar
 
 let puntosAlmacenados = localStorage.getItem('puntos')
+
+const styleJugar = resultado => {
+  title.style = 'opacity: 0;'
+  containerResultado.style = 'display: flex;'
+  resultadoUser.innerHTML = user.id
+  resultadoPC.innerHTML = pc.id
+  containerJugarOtraVez.style = 'display: flex;'
+  resultado.style = 'display: flex;'
+}
+const puntosGanaste = () => {
+  puntos++
+  puntosAlmacenados++
+  puntaje.innerHTML = puntosAlmacenados
+}
+const puntosPerdiste = () => {
+  --puntos
+  --puntosAlmacenados
+  puntaje.innerHTML = puntosAlmacenados
+}
+
 jugar.addEventListener('click', e => {
   const click = e.target
   puntos = puntosAlmacenados
-  if (click === jugar && user === piedra || user === papel || user === tijera) {
+  if (
+    (click === jugar && user === piedra) ||
+    user === papel ||
+    user === tijera
+  ) {
     if (user === piedra && pc === tijera) {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      ganaste.style = 'display: flex;'
-      puntos++
-      puntosAlmacenados++
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(ganaste)
+      puntosGanaste()
     } else if (user === papel && pc === tijera) {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      perdiste.style = 'display: flex;'
-      --puntos
-      --puntosAlmacenados
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(perdiste)
+      puntosPerdiste()
     } else if (user === papel && pc === piedra) {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      ganaste.style = 'display: flex;'
-      puntos++
-      puntosAlmacenados++
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(ganaste)
+      puntosGanaste()
     } else if (user === tijera && pc === piedra) {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      perdiste.style = 'display: flex;'
-      --puntos
-      --puntosAlmacenados
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(perdiste)
+      puntosPerdiste()
     } else if (user === piedra && pc === papel) {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      perdiste.style = 'display: flex;'
-      --puntos
-      --puntosAlmacenados
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(perdiste)
+      puntosPerdiste()
     } else if (user === tijera && pc === papel) {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      ganaste.style = 'display: flex;'
-      puntos++
-      puntosAlmacenados++
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(ganaste)
+      puntosGanaste()
     } else {
-      title.style = 'opacity: 0;'
-      containerResultado.style = 'display: flex;'
-      resultadoUser.innerHTML = user.id
-      resultadoPC.innerHTML = pc.id
-      containerJugarOtraVez.style = 'display: flex;'
-      empate.style = 'display: flex;'
-      puntaje.innerHTML = puntosAlmacenados
+      styleJugar(empate)
     }
     localStorage.setItem('puntos', puntos)
   }
@@ -167,68 +143,24 @@ theme.addEventListener('click', e => {
   body.classList.toggle('dark')
   if (body.classList.contains('dark')) {
     localStorage.setItem('theme', 'true')
+    document.documentElement.style.setProperty('--primary-color', '#33b1ff')
+    document.documentElement.style.setProperty(
+      '--secondary-color',
+      'rgb(200 200 200 / 40%)'
+    )
+    document.documentElement.style.setProperty('--color-text', '#121f3d')
   } else if (!body.classList.contains('dark')) {
     localStorage.setItem('theme', 'false')
+    document.documentElement.style.setProperty('--primary-color', '#CCFFFF')
+    document.documentElement.style.setProperty(
+      '--secondary-color',
+      'rgb(120 120 120 / 40%)'
+    )
+    document.documentElement.style.setProperty('--color-text', 'rgb(75, 75, 75)')
   }
-  window.location.reload()
 })
 if (localStorage.getItem('theme') === 'true') {
   body.classList.add('dark')
 } else if (localStorage.getItem('theme') === 'false') {
   body.classList.remove('dark')
-}
-if (body.classList.contains('dark')) {
-  function jugarOtraVez () {
-    function nuevaOpcionAleatoria (opciones) {
-      let indiceAleatorio = Math.floor(Math.random() * opciones.length)
-      return opciones[indiceAleatorio]
-    }
-    pc = nuevaOpcionAleatoria(opciones)
-    user = 'ElegirOtraVez'
-    title.style = 'opacity: 1;'
-    papel.style = 'background-color: var(--dark-secondary-color); border: none;'
-    piedra.style =
-      'background-color: var(--dark-secondary-color); border: none;'
-    tijera.style =
-      'background-color: var(--dark-secondary-color); border: none;'
-    containerResultado.style = 'display: none;'
-    ganaste.style = 'display: none;'
-    perdiste.style = 'display: none;'
-    empate.style = 'display: none;'
-    containerJugarOtraVez.style = 'display: none;'
-  }
-  piedra.addEventListener('click', e => {
-    const click = e.target
-    if (click == piedra || click == piedraImg) {
-      user = piedra
-    }
-    piedra.style =
-      'background-color: var(--dark-primary-color); border: 2px solid var(--dark-tertiary-color);'
-    papel.style = 'background-color: var(--dark-secondary-color); border: none;'
-    tijera.style =
-      'background-color: var(--dark-secondary-color); border: none);'
-  })
-  papel.addEventListener('click', e => {
-    const click = e.target
-    if (click == papel || click == papelImg) {
-      user = papel
-    }
-    papel.style =
-      'background-color: var(--dark-primary-color); border: 2px solid var(--dark-tertiary-color);'
-    piedra.style =
-      'background-color: var(--dark-secondary-color); border: none;'
-    tijera.style =
-      'background-color: var(--dark-secondary-color)); border: none);'
-  })
-  tijera.addEventListener('click', e => {
-    const click = e.target
-    if (click == tijera || click == tijeraImg) {
-      user = tijera
-    }
-    tijera.style =
-      'background-color: var(--dark-primary-color); border: 2px solid var(--dark-tertiary-color);'
-    papel.style = 'background-color: var(--dark-secondary-color); border: none;'
-    piedra.style =
-      'background-color: var(--dark-secondary-color); border: none);'
-  })
 }
