@@ -227,7 +227,6 @@ body.dark .button-play:hover {
     background-color: #fff;
     border: none;
     border-radius: 25px;
-    cursor: pointer;
 }
 
 body.dark .container-resultado ul {
