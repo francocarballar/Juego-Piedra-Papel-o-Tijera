@@ -18,6 +18,12 @@
     --pc: rgb(184, 0, 0);
 }
 
+[data-theme="true"] {
+    --primary-color: #33b1ff;
+    --secondary-color: rgb(200 200 200 / 40%);
+    --color-text: #121f3d;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -38,6 +44,7 @@ body {
 body.dark {
     background: var(--dark-background-color-degrade);
 }
+
 
 header {
     width: 100%;
