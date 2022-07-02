@@ -21,11 +21,12 @@ const resultadoPC = document.getElementById('resultado-pc')
 
 let puntos = 0
 let user
-let opciones = [piedra, papel, tijera]
-let pc = function opcionAleatoria (opciones) {
+let opciones = [piedra, papel, tijera] 
+function opcionAleatoria (opciones) {
   let indiceAleatorio = Math.floor(Math.random() * opciones.length)
   return opciones[indiceAleatorio]
 }
+let pc =  opcionAleatoria (opciones)
 
 // Reglas del juego
 
@@ -85,7 +86,7 @@ jugar.addEventListener('click', e => {
   const click = e.target
   puntos = puntosAlmacenados
   if (
-    (click === jugar && user === piedra) ||
+    click === jugar && user === piedra ||
     user === papel ||
     user === tijera
   ) {
@@ -143,24 +144,15 @@ theme.addEventListener('click', e => {
   body.classList.toggle('dark')
   if (body.classList.contains('dark')) {
     localStorage.setItem('theme', 'true')
-    document.documentElement.style.setProperty('--primary-color', '#33b1ff')
-    document.documentElement.style.setProperty(
-      '--secondary-color',
-      'rgb(200 200 200 / 40%)'
-    )
-    document.documentElement.style.setProperty('--color-text', '#121f3d')
+    document.documentElement.setAttribute('data-theme', true) 
   } else if (!body.classList.contains('dark')) {
     localStorage.setItem('theme', 'false')
-    document.documentElement.style.setProperty('--primary-color', '#CCFFFF')
-    document.documentElement.style.setProperty(
-      '--secondary-color',
-      'rgb(120 120 120 / 40%)'
-    )
-    document.documentElement.style.setProperty('--color-text', 'rgb(75, 75, 75)')
   }
 })
 if (localStorage.getItem('theme') === 'true') {
   body.classList.add('dark')
+  document.documentElement.setAttribute('data-theme', true) 
 } else if (localStorage.getItem('theme') === 'false') {
   body.classList.remove('dark')
 }
+
