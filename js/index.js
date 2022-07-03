@@ -147,6 +147,7 @@ theme.addEventListener('click', e => {
     document.documentElement.setAttribute('data-theme', true) 
   } else if (!body.classList.contains('dark')) {
     localStorage.setItem('theme', 'false')
+    document.documentElement.setAttribute('data-theme', false)
   }
 })
 if (localStorage.getItem('theme') === 'true') {
@@ -154,5 +155,6 @@ if (localStorage.getItem('theme') === 'true') {
   document.documentElement.setAttribute('data-theme', true) 
 } else if (localStorage.getItem('theme') === 'false') {
   body.classList.remove('dark')
+  document.documentElement.setAttribute('data-theme', false)
 }
 
